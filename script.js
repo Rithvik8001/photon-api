@@ -5,6 +5,7 @@ const submitBtn = document.querySelector(`.submit-btn`);
 
 // funtions
 
+// function to get the data from the api
 const curatedPhtos = async () => {
   // authorizing the pexels api
   const dataFetch = await fetch("https://api.pexels.com/v1/curated", {
@@ -17,7 +18,6 @@ const curatedPhtos = async () => {
   // pase the json file to object so we can work with it
   const data = await dataFetch.json();
   data.photos.forEach((photo) => {
-    console.log(photo);
     const galleryImages = document.createElement(`div`);
     galleryImages.classList.add(`gallery-img`);
     galleryImages.innerHTML = `<img src = ${photo.src.large}> </img> 
